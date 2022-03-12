@@ -1,22 +1,24 @@
                                   
   
-let myLib = [
-    {
-      title: "A Game of Thrones",
-      author: "George R. R. Martin",
-      pages: 694
-    }
-  ];
+let myLib = [{
+    title: "A book title",
+    author: "Author of the book",
+    pages: 101,
+    read: false
+}];
+  
 const showbtn = document.querySelector('#showBtn');
 const formShow = document.querySelector('.form')
 const addBtn = document.querySelector('#pushBook')
 const titleInp = document.querySelector('#bookTitle')
 const authorInp = document.querySelector('#bookAuth')
 const pageInp = document.querySelector('#bookPages')
-const godiv = document.createElement('div')
-const display = document.querySelector('#body')
-$table = document.querySelector('.table');
-$tbody = $table.querySelector('tbody');
+
+
+table = document.querySelector('.table');
+tablebody = table.querySelector('tbody');
+
+
 
 
 
@@ -30,11 +32,17 @@ function Book(titleBe, authBe, pagesBe) {
         let title = titleInp.value
         let author = authorInp.value
         let pages = pageInp.value
+        let read = readValue();
         let newBook = new Book(title, author, pages)
         myLib.push(newBook)
 }
-const updateTable = () => {
-    $tbody.textContent = '';
+const readValue = () => {
+    if(formShow.querySelector('input[name="read"]:checked').value == 'yes') return true;
+    else return false;
+  }
+  console.log(readValue())
+const createTable = () => {
+    tablebody.textContent = '';
   
     myLib.forEach((book, index) => {
       let $row = document.createElement('tr');
@@ -44,13 +52,36 @@ const updateTable = () => {
         if (prop == 'read') $newTd.textContent = book[prop] ? 'Read' : 'Not read';
         $row.appendChild($newTd);
       }); 
-  
-      
-      $tbody.appendChild($row);
-    });
-}
+      $row.appendChild(createReadStatusTd(book));
 
-updateTable()
+      $row.appendChild(createDeleteTd(index));
+      tablebody.appendChild($row);
+    });
+ 
+}
+const createReadStatusTd = (book) => {
+    let $readStatusTd = document.createElement('td');
+    let $readStatusButton = document.createElement('button');
+    $readStatusButton.textContent = 'Change read status';
+    $readStatusButton.addEventListener('click', () => {
+      book.read = !book.read;
+      createTable();
+    });
+    $readStatusTd.appendChild($readStatusButton);
+    return $readStatusTd;
+  }
+  const createDeleteTd = (index) => {
+    let $deleteTd = document.createElement('td');
+    let $deleteButton = document.createElement('button');
+    $deleteButton.textContent = 'Delete';
+    $deleteButton.addEventListener('click', () => {
+      myLib.splice(index, 1);
+      createTable();
+    });
+    $deleteTd.appendChild($deleteButton);
+    return $deleteTd;
+  }
+createTable()
 
 addBtn.addEventListener('click', () => {
     const titleBe = titleInp.value
@@ -60,7 +91,7 @@ addBtn.addEventListener('click', () => {
             alert('Please fill out the remaining fields =)')
         } else {
             addBook()
-            updateTable()
+            createTable()
             titleInp.value = ''
             authorInp.value = ''
             pageInp.value = ''
@@ -87,8 +118,8 @@ showbtn.addEventListener('click', () => {
 });
 
 
+  createTable();
 
-    
 /* var givenName = document.querySelector('#name')
 var btnClass = document.querySelector('#addNameButton')
 var listOfName = document.querySelector('#listOfName')

@@ -17,7 +17,11 @@
 .header {
 width: 100%;
 height: 150px;
-background-color: blue;
+background-image: url(https://wallpaperaccess.com/full/4742360.jpg);
+background-size: contain;
+font-size: 50px;
+color:darkblue;
+
 
 
 }
@@ -27,18 +31,36 @@ background-color: blue;
     z-index: 100;
     gap: 5px;
     align-content: center;
- 
- width: max-content;
+    justify-content: center;
+    height: 200px;
+ width: 300px;
 position: absolute;
 margin-top: 220px;
 margin-left: 550px;
 visibility: hidden;
+background-image: url(https://c1.wallpaperflare.com/preview/702/567/820/literature-wisdom-know-library.jpg);
+background-size: cover;
+border-radius: 10px;
+text-align: center;
 }
 .form > button {
-    width: 150px;
+    width: 100px;
     height: 30px;
     border-radius: 8px;
     border: none;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 900;
+   
+
+    
+
+}
+.form > button:hover {
+    background-color: lightslategray;
 }
 .form > input {
     width: 200px;
@@ -46,6 +68,10 @@ visibility: hidden;
     border: none;
     cursor: pointer;
     border-radius: 8px;
+    background-color: white;
+    display: flex;
+    align-self: center;
+    padding-left: 5px;
    
 }
 #body {
@@ -76,4 +102,34 @@ visibility: hidden;
     height: 40px;
     background-color: beige;
 
+}
+table {
+    width: 100%;
+    background-color: #272822;
+    color: #f8f8f2;
+    border-spacing: 0;
+    border-bottom: 5px solid #272822;
+    /*
+    border: 1px solid #fefefe; or #dddbcc
+    border-collapse: separate;
+    border-spacing: 0;
+    */
+  }
+  
+  th {
+    padding: 10px 10px;
+  }
+  
+  td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  tbody {
+    background-color: #fefefe;
+    color: #424242;
+  }
+
+ td > button {
+  
 }

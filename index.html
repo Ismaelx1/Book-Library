@@ -16,10 +16,19 @@
             <input type="text" id="bookTitle" placeholder="Book Title" required>
             <input type="text" id="bookAuth" placeholder="Book Author" required>
             <input type="number" id="bookPages" placeholder="Number of Pages" required>
+            <legend>Read book?</legend>
+            <label for="yes">
+              <input type="radio" id="yes" name="read" value="yes" checked>
+              <span>Yes</span>
+            </label>
+            <label for="no">
+              <input type="radio" id="no" name="read" value="no">
+              <span>No</span>
+            </label>
             <button type="button" id="pushBook">Add Book</button>
             <button type="button" onclick="exit()">Exit!</button>
         </div>
-        <div class="header"></div>
+        <div class="header">Welcome to My Library!</div>
         <div class="#body">
             <div class="table">
                 <table>
@@ -39,9 +48,9 @@
                     <td>AuthorData</td>
                     <td>PagesData</td>
                     <td>ReadData</td>
-                    <td><button>Change read status</button></td>
-                    <td><button>Edit</button></td>
+                    <td><button>Read status</button></td>
                     <td><button>Delete</button></td>
+                  
                   </tbody>
                 </table>
               </div>
