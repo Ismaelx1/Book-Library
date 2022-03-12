@@ -1,9 +1,27 @@
                                   
   
 let myLib = [{
-    title: "A book title",
-    author: "Author of the book",
-    pages: 101,
+    title: "The Hobbit",
+    author: "J. R. R. Tolkien",
+    pages: 310,
+    read: true
+},
+{
+    title: "Harry Potter and the Philosopher's Stone",
+    author: "J. K. Rowling",
+    pages: 223,
+    read: true
+},
+{
+    title: "Freedom From The Known",
+    author: "J. Krishnamurti",
+    pages: 310,
+    read: true
+},
+{
+    title: "Think Like a Programmer",
+    author: "V. Anton Spraul",
+    pages: 260,
     read: false
 }];
   
@@ -32,15 +50,12 @@ function Book(titleBe, authBe, pagesBe) {
         let title = titleInp.value
         let author = authorInp.value
         let pages = pageInp.value
-        let read = readValue();
         let newBook = new Book(title, author, pages)
         myLib.push(newBook)
 }
-const readValue = () => {
-    if(formShow.querySelector('input[name="read"]:checked').value == 'yes') return true;
-    else return false;
-  }
-  console.log(readValue())
+
+
+ 
 const createTable = () => {
     tablebody.textContent = '';
   
@@ -62,7 +77,7 @@ const createTable = () => {
 const createReadStatusTd = (book) => {
     let $readStatusTd = document.createElement('td');
     let $readStatusButton = document.createElement('button');
-    $readStatusButton.textContent = 'Change read status';
+    $readStatusButton.textContent = 'Read status';
     $readStatusButton.addEventListener('click', () => {
       book.read = !book.read;
       createTable();
