@@ -147,4 +147,11 @@ td > button:hover {
 .btn {
     display: flex;
     justify-content: center;
+    cursor: pointer;
+
+}
+.btn:hover {
+    background-color: black;
+    color: azure;
+    border: 1px solid azure;
 }
