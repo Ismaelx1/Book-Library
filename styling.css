@@ -98,6 +98,8 @@ font-weight: bolder;
 display: flex;
 justify-content: center;
 
+cursor: pointer;
+
 }
 
 
@@ -144,14 +146,14 @@ table {
 td > button:hover {
     background-color: lightslategray;
 }
-.btn {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
 
-}
-.btn:hover {
+#showBtn:hover {
     background-color: black;
     color: azure;
     border: 1px solid azure;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
 }
