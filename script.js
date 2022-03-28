@@ -44,13 +44,14 @@ function Book(titleBe, authBe, pagesBe) {
     this.title = titleBe;
     this.author = authBe;
     this.pages = pagesBe;
+    this.read = false;
     };
 
     function addBook() {
         let title = titleInp.value
         let author = authorInp.value
         let pages = pageInp.value
-        let newBook = new Book(title, author, pages)
+        let newBook = new Book(title, author, pages, false)
         myLib.push(newBook)
 }
 
