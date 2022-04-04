@@ -10,7 +10,7 @@ let myLib = [{
     title: "Harry Potter and the Philosopher's Stone",
     author: "J. K. Rowling",
     pages: 223,
-    read: true
+    read: false
 },
 {
     title: "Freedom From The Known",
@@ -33,6 +33,19 @@ const authorInp = document.querySelector('#bookAuth')
 const pageInp = document.querySelector('#bookPages')
 
 
+
+
+let checkd = () => {
+  let checking = document.querySelector('input[name="read-readnt"]:checked')
+  if (checking.value == 'read') {
+    return true
+  } else if (checking.value == 'notread') {
+    return false
+  }
+}
+
+
+
 table = document.querySelector('.table');
 tablebody = table.querySelector('tbody');
 
@@ -40,18 +53,19 @@ tablebody = table.querySelector('tbody');
 
 
 
-function Book(titleBe, authBe, pagesBe) {
+function Book(titleBe, authBe, pagesBe, values) {
     this.title = titleBe;
     this.author = authBe;
     this.pages = pagesBe;
-    this.read = false;
+    this.read = values;
     };
 
     function addBook() {
+      checkd()
         let title = titleInp.value
         let author = authorInp.value
         let pages = pageInp.value
-        let newBook = new Book(title, author, pages, false)
+        let newBook = new Book(title, author, pages, checkd())
         myLib.push(newBook)
 }
 
@@ -104,7 +118,7 @@ addBtn.addEventListener('click', () => {
     const authBe = authorInp.value
     const pageBe = pageInp.value 
         if (titleBe.length == 0 || authBe.length == 0 || pageBe.length == 0) {
-            alert('Please fill out the remaining fields =)')
+            alert("Please fill out the remaining fields ^^")
         } else {
             addBook()
             createTable()

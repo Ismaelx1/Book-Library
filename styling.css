@@ -157,3 +157,16 @@ td > button:hover {
     display: flex;
     justify-content: center;
 }
+
+.radio {
+    display: inline-flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+span {
+    color: white;
+    padding-left: 5px;
+}
+

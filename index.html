@@ -16,7 +16,16 @@
             <input type="text" id="bookTitle" placeholder="Book Title" required>
             <input type="text" id="bookAuth" placeholder="Book Author" required>
             <input type="number" id="bookPages" placeholder="Number of Pages" required>
-         
+      <div class="radio">
+            <label for="yes"> 
+              <input id="yes" type="radio" name="read-readnt" value="read"><span>Read</span>
+            </label>
+            <label for="no"> 
+              <input id="no" type="radio" name="read-readnt" value="notread" checked><span>Not Read</span>
+            </label>
+          </div>
+
+
             <button type="button" id="pushBook">Add Book</button>
             <button type="button" onclick="exit()">Exit!</button>
         </div>
